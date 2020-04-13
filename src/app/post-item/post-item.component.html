@@ -1,0 +1,15 @@
+<li
+  [ngStyle]="{ color: getColor() }"
+  [ngClass]="{
+    'list-group-item': true,
+    'list-group-item-success': this.counter > 0,
+    'list-group-item-danger': this.counter < 0
+  }"
+>
+  <h4>{{ postTitle | uppercase }}</h4>
+  <p>{{ lastUpdate | async | date: "d MMM y" | uppercase }}</p>
+  <p>-- {{ postContent }}</p>
+  <button class="btn btn-success" (click)="increment()">Like</button>
+  <button class="btn btn-danger" (click)="decrement()">Dislike</button>
+  <p *ngIf="counter > 0">{{ counter }}</p>
+</li>
